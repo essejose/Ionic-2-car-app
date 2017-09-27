@@ -1,4 +1,8 @@
 import { Component, OnInit  } from '@angular/core';
+
+
+import { Carro } from '../../domain/carro/carro';
+
 import {
   NavController,
   LoadingController,
@@ -14,7 +18,7 @@ import {EscolhaPage} from '../escolha/escolha'
 })
 export class HomePage implements OnInit  {
 
-  public carros;
+  public carros :Carro[];
 
   constructor(
     public navCtrl: NavController,

@@ -7,6 +7,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { EscolhaPage } from '../pages/escolha/escolha';
+import { CadastroPage } from '../pages/cadastro/cadastro';
+
 import { HttpModule } from '@angular/http';
 
 import 'rxjs/add/operator/map';
@@ -16,7 +18,8 @@ import 'rxjs/add/operator/toPromise';
   declarations: [
     MyApp,
     HomePage,
-    EscolhaPage
+    EscolhaPage,
+    CadastroPage
   ],
   imports: [
     BrowserModule,
@@ -27,7 +30,8 @@ import 'rxjs/add/operator/toPromise';
   entryComponents: [
     MyApp,
     HomePage,
-    EscolhaPage
+    EscolhaPage,
+    CadastroPage
   ],
   providers: [
     StatusBar,
