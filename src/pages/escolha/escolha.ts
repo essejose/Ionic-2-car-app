@@ -1,13 +1,8 @@
 import { Component } from '@angular/core';
-
 import { NavParams, NavController} from 'ionic-angular';
 import { Acessorio } from '../../domain/carro/acessorio';
-
-import {CadastroPage} from '../cadastro/cadastro'
-
+import { CadastroPage} from '../cadastro/cadastro'
 import { Carro } from '../../domain/carro/carro';
-
-
 
 @Component({
     templateUrl:'escolha.html'
@@ -20,6 +15,7 @@ export class EscolhaPage{
     private _precoTotal : number;
 
     constructor(
+
         public navCtrl: NavController,
         public navParams: NavParams){
 
@@ -53,11 +49,11 @@ export class EscolhaPage{
     // novo método 
     avancaNoAgendamento() {
         
-                this.navCtrl.push(CadastroPage, {
-                    carro: this.carro, 
-                    precoTotal: this._precoTotal
-                });
-        }    
+        this.navCtrl.push(CadastroPage, {
+            carro: this.carro, 
+            precoTotal: this._precoTotal
+        });
+    }    
 
    
 }
