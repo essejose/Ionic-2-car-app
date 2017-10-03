@@ -53,30 +53,44 @@ export class CadastroPage {
     }
 
       this._service.agenda(this.agendamento) 
-      .then(agendamento =>{ 
+      .then(agendamento =>{  
+          agendamento ?
 
-        agendamento ?
-        
-        this._alerta = this._alertCtrl.create({
-          title:'Aviso',
-          subTitle:'Agendamento sucesso',
-          buttons:[{text:'Ok'}]
-        }) :
-        
-        this._alerta = this._alertCtrl.create({
-          title:'Aviso',
-          subTitle:'Nao foi possivel',
-          buttons:[{
-            text:'Ok', 
-            handler: () => { 
-              this.navCtrl.setRoot(HomePage)
-            }
-          }]
-        });
+          this._alerta = this._alertCtrl.create({
+            title:'Aviso',
+            subTitle:'Agendamento sucesso',
+            buttons:[{text:'Ok'}]
+          }) :
+          
+          this._alerta = this._alertCtrl.create({
+            title:'Aviso',
+            subTitle:'Nao foi possivel',
+            buttons:[{
+              text:'Ok', 
+              handler: () => { 
+              //  this.navCtrl.setRoot(HomePage)
+              }
+            }]
+          });
+          this._alerta.present();
+       
 
-        this._alerta.present();
+        }).catch(err => {
+         
+             console.log(err)
 
-      })
+             this._alerta = this._alertCtrl.create({
+              title:'Aviso',
+              subTitle:err.message,
+              buttons:[{
+                text:'Ok', 
+                handler: () => { 
+                //  this.navCtrl.setRoot(HomePage)
+                }
+              }]
+            });
+            this._alerta.present();
+          })
       
 
     }
