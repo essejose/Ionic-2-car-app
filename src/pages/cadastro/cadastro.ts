@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
-import { Http } from '@angular/http';
+import { NavController, NavParams, AlertController,Alert } from 'ionic-angular';
+//import { Http } from '@angular/http';
 
 // importou o tipo Carro para tiparmos a propriedade carro que guarda um objeto do tipo Carro
 import { Carro } from '../../domain/carro/carro';
-
-
+import { Agendamento } from '../../domain/agendamento/agendamento'
+import { HomePage} from '../home/home'
+import { AgendamentoService } from '../../domain/agendamento/agendamento-service'
 
 @Component({
   selector: 'page-cadastro',
@@ -15,30 +16,70 @@ export class CadastroPage {
 
   public carro: Carro;
   public precoTotal: number;
+ 
+  public agendamento: Agendamento;
 
-  
-  public nome: string;
-  public endereco: string;
-  public email: string;
-  public data: string  = new Date().toISOString();
+  private _alerta: Alert;
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    private _http: Http ) {
+    private _alertCtrl : AlertController,
+    private _service: AgendamentoService ) {
 
     this.carro = navParams.get('carro');
     this.precoTotal = navParams.get('precoTotal');
+      
+    this.agendamento = new Agendamento(this.carro, this.precoTotal)
 
   }
 
+ 
   agenda() {
 
-      this._http .get(`https://aluracar.herokuapp.com/salvarpedido?carro=${this.carro.nome}&nome=${this.nome}&preco=${this.precoTotal}&endereco=${this.endereco}&email=${this.email}&dataAgendamento=${this.data}`)
-      .toPromise()
-      .then(() => alert('Agendou'))
-      .catch(erro => alert('Falha'));
-      }
+
+    if(!this.agendamento.email  || !this.agendamento.endereco || !this.agendamento.nome){
+
+      this._alerta = this._alertCtrl.create({
+        title:'Aviso',
+        subTitle:'Voce deve preencher tudo',
+        buttons:[{text:'Ok'}]
+      })
+
+      this._alerta.present();
+
+      return
+
+    }
+
+      this._service.agenda(this.agendamento) 
+      .then(agendamento =>{ 
+
+        agendamento ?
+        
+        this._alerta = this._alertCtrl.create({
+          title:'Aviso',
+          subTitle:'Agendamento sucesso',
+          buttons:[{text:'Ok'}]
+        }) :
+        
+        this._alerta = this._alertCtrl.create({
+          title:'Aviso',
+          subTitle:'Nao foi possivel',
+          buttons:[{
+            text:'Ok', 
+            handler: () => { 
+              this.navCtrl.setRoot(HomePage)
+            }
+          }]
+        });
+
+        this._alerta.present();
+
+      })
+      
+
+    }
 
 
 }
