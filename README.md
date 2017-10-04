@@ -4,6 +4,8 @@ This is a starter template for [Ionic](http://ionicframework.com/docs/) projects
 
 ## How to use this template
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/0b4b2a18c191406f9cf8f9a0e49f0e6d)](https://www.codacy.com/app/essejose/Ionic-2-car-app?utm_source=github.com&utm_medium=referral&utm_content=essejose/Ionic-2-car-app&utm_campaign=badger)
+
 *This template does not work on its own*. The shared files for each starter are found in the [ionic2-app-base repo](https://github.com/ionic-team/ionic2-app-base).
 
 To use this template, either create a new ionic project using the ionic node.js utility, or copy the files from this repository into the [Starter App Base](https://github.com/ionic-team/ionic2-app-base).
