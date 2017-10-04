@@ -7,7 +7,7 @@ import { Carro } from '../../domain/carro/carro';
 import { Agendamento } from '../../domain/agendamento/agendamento'
 import { HomePage} from '../home/home'
 import { AgendamentoService } from '../../domain/agendamento/agendamento-service'
-
+import { Vibration } from '@ionic-native/vibration';
 
 
 @Component({
@@ -27,7 +27,9 @@ export class CadastroPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     private _alertCtrl : AlertController,
-    private _service: AgendamentoService ) {
+    private _service: AgendamentoService,
+    private vibration: Vibration
+  ) {
 
     this.carro = navParams.get('carro');
     this.precoTotal = navParams.get('precoTotal');
@@ -42,6 +44,8 @@ export class CadastroPage {
 
     if(!this.agendamento.email  || !this.agendamento.endereco || !this.agendamento.nome){
 
+      this.vibration.vibrate(1000);
+      
       this._alerta = this._alertCtrl.create({
         title:'Aviso',
         subTitle:'Voce deve preencher tudo',

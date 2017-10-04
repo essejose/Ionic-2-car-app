@@ -3,17 +3,21 @@ import { Platform ,Nav} from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { HomePage } from '../pages/home/home';
-import { AgendamentosPage } from '../pages/agendamentos/agendamentos'
+//import { HomePage } from '../pages/home/home';
+import { AgendamentosPage } from '../pages/agendamentos/agendamentos';
+import { LoginPage } from '../pages/login/login';
+
+import { PerfilPage } from '../pages/perfil/perfil';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = HomePage;
+  rootPage:any = LoginPage;
 
   public paginas = [
     {titulo: 'Agendamentos', componente: AgendamentosPage },
+    {titulo: 'Perfil', componente: PerfilPage },
     
   ];
 
