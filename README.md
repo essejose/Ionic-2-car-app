@@ -1,3 +1,5 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/0b4b2a18c191406f9cf8f9a0e49f0e6d)](https://www.codacy.com/app/essejose/Ionic-2-car-app?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=essejose/Ionic-2-car-app&amp;utm_campaign=Badge_Grade)
+
 This is a starter template for [Ionic](http://ionicframework.com/docs/) projects.
 
 ## How to use this template
