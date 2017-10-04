@@ -5,7 +5,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { Storage } from '@ionic/storage'; 
-
+import { Vibration } from '@ionic-native/vibration';
 import { MyApp } from './app.component';
 
 
@@ -60,6 +60,7 @@ function provideStorage() {
   providers: [
     StatusBar,
     SplashScreen,
+    Vibration,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AgendamentoService,
     AgendamentoDao, 
