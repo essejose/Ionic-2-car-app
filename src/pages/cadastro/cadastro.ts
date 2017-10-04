@@ -8,6 +8,8 @@ import { Agendamento } from '../../domain/agendamento/agendamento'
 import { HomePage} from '../home/home'
 import { AgendamentoService } from '../../domain/agendamento/agendamento-service'
 
+
+
 @Component({
   selector: 'page-cadastro',
   templateUrl: 'cadastro.html'
@@ -54,12 +56,18 @@ export class CadastroPage {
 
       this._service.agenda(this.agendamento) 
       .then(agendamento =>{  
-          agendamento ?
-
+          
+       
+        agendamento ?
           this._alerta = this._alertCtrl.create({
             title:'Aviso',
             subTitle:'Agendamento sucesso',
-            buttons:[{text:'Ok'}]
+            buttons:[{
+              text:'Ok', 
+              handler: () => { 
+                this.navCtrl.setRoot(HomePage)
+              }
+            }]
           }) :
           
           this._alerta = this._alertCtrl.create({
@@ -68,7 +76,7 @@ export class CadastroPage {
             buttons:[{
               text:'Ok', 
               handler: () => { 
-              //  this.navCtrl.setRoot(HomePage)
+                this.navCtrl.setRoot(HomePage)
               }
             }]
           });

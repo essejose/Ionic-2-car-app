@@ -11,6 +11,7 @@ import { EscolhaPage } from '../pages/escolha/escolha';
 import { CadastroPage } from '../pages/cadastro/cadastro';
 import { AgendamentoService } from '../domain/agendamento/agendamento-service'
 import { AgendamentoDao } from '../domain/agendamento/agendamento-dao'
+import { AgendamentosPage } from '../pages/agendamentos/agendamentos'
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
@@ -28,7 +29,8 @@ function provideStorage() {
     MyApp,
     HomePage,
     EscolhaPage,
-    CadastroPage
+    CadastroPage,
+    AgendamentosPage,
   ],
   imports: [
     BrowserModule,
@@ -41,14 +43,16 @@ function provideStorage() {
     MyApp,
     HomePage,
     EscolhaPage,
-    CadastroPage
+    CadastroPage,
+    AgendamentosPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AgendamentoService,
-    AgendamentoDao,
+    AgendamentoDao, 
+    
     { provide:Storage, useFactory:provideStorage}
   ]
 })
