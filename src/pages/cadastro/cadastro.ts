@@ -8,7 +8,7 @@ import { Agendamento } from '../../domain/agendamento/agendamento'
 import { HomePage} from '../home/home'
 import { AgendamentoService } from '../../domain/agendamento/agendamento-service'
 import { Vibration } from '@ionic-native/vibration';
-
+import { DatePicker } from '@ionic-native/date-picker';
 
 @Component({
   selector: 'page-cadastro',
@@ -28,12 +28,13 @@ export class CadastroPage {
     public navParams: NavParams,
     private _alertCtrl : AlertController,
     private _service: AgendamentoService,
-    private vibration: Vibration
+    private vibration: Vibration,
+    private  datePicker:  DatePicker
+
   ) {
 
     this.carro = navParams.get('carro');
     this.precoTotal = navParams.get('precoTotal');
-      
     this.agendamento = new Agendamento(this.carro, this.precoTotal)
 
   }
@@ -104,6 +105,27 @@ export class CadastroPage {
             this._alerta.present();
           })
       
+
+    }
+
+    selecionaData(){
+
+      this.datePicker.show({
+        date: new Date(),
+        mode: 'date',
+        allowFutureDates:true,
+        allowOldDates:false,
+        androidTheme: this.datePicker.ANDROID_THEMES.THEME_DEVICE_DEFAULT_LIGHT,
+        
+        
+      }).then(
+        date =>{
+         
+           this.agendamento.data = date.toISOString(); 
+          
+        },
+         err => console.log('Error occurred while getting date: ', err)
+      );
 
     }
 

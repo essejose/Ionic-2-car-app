@@ -35,9 +35,9 @@
         <ion-input [(ngModel)]="agendamento.email" name="email" type="text"></ion-input>
     </ion-item>
 
-    <ion-item>
+    <ion-item (click) ="selecionaData()" >
         <ion-label stacked>Data do Agendamento</ion-label>
-        <ion-datetime name="data" type="text" [(ngModel)]="agendamento.data" displayFormat="DD/MM/YY"></ion-datetime>
+        <ion-datetime disabled="true" name="data" type="text" [(ngModel)]="agendamento.data" displayFormat="DD/MM/YY"></ion-datetime>
     </ion-item>
 
     <button ion-button block type="submit" >Finalizar Agendamento</button>

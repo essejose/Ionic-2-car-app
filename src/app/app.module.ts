@@ -7,6 +7,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { Storage } from '@ionic/storage'; 
 import { Vibration } from '@ionic-native/vibration';
 import { Camera, CameraOptions } from '@ionic-native/camera';
+import { DatePicker } from '@ionic-native/date-picker';
 
 import { MyApp } from './app.component';
 
@@ -63,6 +64,7 @@ function provideStorage() {
     StatusBar,
     SplashScreen,
     Vibration,
+    DatePicker,
     Camera,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AgendamentoService,
