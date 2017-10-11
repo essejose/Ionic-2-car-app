@@ -6,6 +6,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { Storage } from '@ionic/storage'; 
 import { Vibration } from '@ionic-native/vibration';
+import { Camera, CameraOptions } from '@ionic-native/camera';
+
 import { MyApp } from './app.component';
 
 
@@ -61,6 +63,7 @@ function provideStorage() {
     StatusBar,
     SplashScreen,
     Vibration,
+    Camera,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AgendamentoService,
     AgendamentoDao, 
